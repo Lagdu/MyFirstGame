@@ -338,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+Library
+Logs
+MonoBleedingEdge
+New Unity Project2_Data
+Packages
+Temp
