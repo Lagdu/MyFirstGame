@@ -64,12 +64,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\CameraFollow.cs" />
+    <Compile Include="Assets\Script\CheckPoint.cs" />
+    <Compile Include="Assets\Script\DeathZone.cs" />
+    <Compile Include="Assets\Script\DontDestroyOnLoadScene.cs" />
     <Compile Include="Assets\Script\EnemyPatrol.cs" />
     <Compile Include="Assets\Script\HealthBar.cs" />
     <Compile Include="Assets\Script\Inventory.cs" />
+    <Compile Include="Assets\Script\Ladder.cs" />
+    <Compile Include="Assets\Script\LoadSpecificScene.cs" />
     <Compile Include="Assets\Script\Pickupobject.cs" />
     <Compile Include="Assets\Script\PlayerHealth.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
+    <Compile Include="Assets\Script\PlayerSpawn.cs" />
     <Compile Include="Assets\Script\WeakSpot.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/UnityHub/2019.4.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

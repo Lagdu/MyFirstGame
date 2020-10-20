@@ -6,10 +6,13 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
 
     public float moveSpeed;
+    public float climbSpeed;
     public float jumpForce;
 
-    public bool isJumping = false;
-    public bool isGrounded = false;
+    private bool isJumping = false;
+    private bool isGrounded = false;
+    [HideInInspector]
+    public bool isClimbing = false;
 
     public Transform groundCheck;
     public float groundCheckRadius;
@@ -17,14 +20,17 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
     public SpriteRenderer spriteRenderer; 
+
     private Vector3 velocity = Vector3.zero;
     private float horizontalMovement ;
+    private float verticalMovement;
 
     void Update()
     {
         
 
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+        verticalMovement = Input.GetAxis("Vertical") * climbSpeed * Time.deltaTime;
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -38,24 +44,33 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("characterVelocity " + characterVelocity);
         animator.SetFloat("Speed", characterVelocity);
+        animator.SetBool("isClimbing", isClimbing);
     }
 
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayer);
-        MovePlayer(horizontalMovement);
+        MovePlayer(horizontalMovement, verticalMovement);
     }
 
-    void MovePlayer(float _horizontalMovement)
+    void MovePlayer(float _horizontalMovement, float _verticalMovement)
     {
-        Vector3 targetVelocity = new Vector2(_horizontalMovement, rb.velocity.y);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, 0.05f);
+        if (!isClimbing) 
+        { 
+            Vector3 targetVelocity = new Vector2(_horizontalMovement, rb.velocity.y);
+            rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, 0.05f);
 
-        if (isJumping == true)
+            if (isJumping)
+            {
+                rb.AddForce(new Vector2(0f, jumpForce));
+                isJumping = false;
+
+            }
+        }
+        else
         {
-            rb.AddForce(new Vector2(0f, jumpForce));
-            isJumping = false;
-
+            Vector3 targetVelocity = new Vector2( 0, _verticalMovement);
+            rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, 0.05f);
         }
     }
 
