@@ -25,6 +25,20 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalMovement ;
     private float verticalMovement;
 
+
+    public static PlayerMovement instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de PlayerMovement dans la sscene");
+            return;
+        }
+
+        instance = this;
+    }
+
     void Update()
     {
         

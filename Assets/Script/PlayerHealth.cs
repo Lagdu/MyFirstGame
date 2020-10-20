@@ -11,6 +11,20 @@ public class PlayerHealth : MonoBehaviour
     public float invicibilityFlashDelay = 0.15f;
     public float invicibilityTimeAfterHit = 3f;
 
+
+    public static PlayerHealth instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de PlayerHealth dans la sscene");
+            return;
+        }
+
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +37,22 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage(20);
+            TakeDamage(120);
         }
+    }
+
+    public void HealPlayer(int amount)
+    {
+        if (currentHealth+amount> maxHealth)
+            {
+            currentHealth = maxHealth;
+        }
+        else
+        {
+            currentHealth += amount;
+        }
+        
+        healthBar.SetHealth(currentHealth);
     }
 
     public void TakeDamage(int damage)
@@ -33,10 +61,28 @@ public class PlayerHealth : MonoBehaviour
         { 
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
-            isInvicible = true;
-            StartCoroutine(InvicibilityFlash());
-            StartCoroutine(HandleInvincibilityDelay());
+
+            if (currentHealth > 0) { 
+
+                isInvicible = true;
+                StartCoroutine(InvicibilityFlash());
+                StartCoroutine(HandleInvincibilityDelay());
+            }
+            else
+            {
+                
+                Die();
+                return;
+            }
         }
+    }
+
+    public void Die()
+    {
+        Debug.LogError("Die motha fuka");
+        PlayerMovement.instance.enabled = false;
+        PlayerMovement.instance.animator.SetTrigger("Die");
+        PlayerMovement.instance.animator.ResetTrigger("Die");
     }
 
     public IEnumerator InvicibilityFlash()
