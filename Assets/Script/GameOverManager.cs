@@ -29,7 +29,6 @@ public class GameOverManager : MonoBehaviour
 
     public void RetryButton()
     {
-        Debug.LogError("RETRY");
         Inventory.instance.RemoveCoin(CurrentSceneManager.instance.coinsPickedUpInThisSceneCount);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         PlayerHealth.instance.Respawn();
@@ -38,7 +37,6 @@ public class GameOverManager : MonoBehaviour
 
     public void MenuButton()
     {
-        Debug.LogError("Menu");
         DontDestroyOnLoadScene.instance.RemoveFromDontDestroyOnLoad();
         SceneManager.LoadScene("MainMenu");
     }
