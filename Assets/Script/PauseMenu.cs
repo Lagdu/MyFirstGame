@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Paused()
     {
-        settingsMenu.SetActive(false);
+
         PlayerMovement.instance.enabled = false;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
@@ -47,9 +47,13 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void SettingsMenu()
+    public void OpenSettingsMenu()
     {
         settingsMenu.SetActive(true);
-        pauseMenuUI.SetActive(false);
+    }
+
+    public void CloseSettingsMenu()
+    {
+        settingsMenu.SetActive(false);
     }
 }
