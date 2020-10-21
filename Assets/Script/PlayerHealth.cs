@@ -62,17 +62,17 @@ public class PlayerHealth : MonoBehaviour
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
 
-            if (currentHealth > 0) { 
+            if (currentHealth <= 0) {
+                Die();
+                return;
 
-                isInvicible = true;
-                StartCoroutine(InvicibilityFlash());
-                StartCoroutine(HandleInvincibilityDelay());
             }
             else
             {
-                
-                Die();
-                return;
+                isInvicible = true;
+                StartCoroutine(InvicibilityFlash());
+                StartCoroutine(HandleInvincibilityDelay());
+              
             }
         }
     }
@@ -82,7 +82,20 @@ public class PlayerHealth : MonoBehaviour
         Debug.LogError("Die motha fuka");
         PlayerMovement.instance.enabled = false;
         PlayerMovement.instance.animator.SetTrigger("Die");
-        PlayerMovement.instance.animator.ResetTrigger("Die");
+        PlayerMovement.instance.rb.bodyType = RigidbodyType2D.Kinematic;
+        PlayerMovement.instance.rb.velocity = Vector3.zero;
+        PlayerMovement.instance.playerCollider.enabled = false;
+        GameOverManager.instance.OnPlayerDeath();
+    }
+
+    public void Respawn()
+    {
+        PlayerMovement.instance.enabled = true;
+        PlayerMovement.instance.animator.SetTrigger("Respawn");
+        PlayerMovement.instance.rb.bodyType = RigidbodyType2D.Dynamic;
+        PlayerMovement.instance.playerCollider.enabled = true;
+        currentHealth = maxHealth;
+        healthBar.SetHealth(currentHealth);
     }
 
     public IEnumerator InvicibilityFlash()

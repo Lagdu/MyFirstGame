@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
+    public CapsuleCollider2D playerCollider;
 
     public float moveSpeed;
     public float climbSpeed;
@@ -18,8 +21,6 @@ public class PlayerMovement : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask collisionLayer;
 
-    public Animator animator;
-    public SpriteRenderer spriteRenderer; 
 
     private Vector3 velocity = Vector3.zero;
     private float horizontalMovement ;
@@ -43,20 +44,18 @@ public class PlayerMovement : MonoBehaviour
     {
         
 
-        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        verticalMovement = Input.GetAxis("Vertical") * climbSpeed * Time.deltaTime;
+        horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.fixedDeltaTime;
+        verticalMovement = Input.GetAxis("Vertical") * climbSpeed * Time.fixedDeltaTime;
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && !isClimbing)
         {
-            Debug.Log("isGrounded " + isGrounded);
             isJumping = true;
             isGrounded = false;
         }
 
         Flip(rb.velocity.x);
-        float characterVelocity = Mathf.Abs(rb.velocity.x);
 
-        Debug.Log("characterVelocity " + characterVelocity);
+        float characterVelocity = Mathf.Abs(rb.velocity.x);
         animator.SetFloat("Speed", characterVelocity);
         animator.SetBool("isClimbing", isClimbing);
     }
