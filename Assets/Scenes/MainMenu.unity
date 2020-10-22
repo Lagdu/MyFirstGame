@@ -752,7 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08933d17fcb9e7e47a374de529d8fa9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: Level01
+  levelToLoad: LevelSelect
   settingsMenu: {fileID: 916922689}
 --- !u!1 &1227594092
 GameObject:

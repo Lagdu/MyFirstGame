@@ -3,6 +3,7 @@
 public class CurrentSceneManager : MonoBehaviour
 {
     public int coinsPickedUpInThisSceneCount;
+    public int levelToUnlock;
 
     public static CurrentSceneManager instance;
     public Vector3 respawnPoint;
