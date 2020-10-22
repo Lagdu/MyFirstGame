@@ -66,6 +66,7 @@
     <Compile Include="Assets\Script\AudioManager.cs" />
     <Compile Include="Assets\Script\CameraFollow.cs" />
     <Compile Include="Assets\Script\CheckPoint.cs" />
+    <Compile Include="Assets\Script\Credit.cs" />
     <Compile Include="Assets\Script\CurrentSceneManager.cs" />
     <Compile Include="Assets\Script\DeathZone.cs" />
     <Compile Include="Assets\Script\DontDestroyOnLoadScene.cs" />
