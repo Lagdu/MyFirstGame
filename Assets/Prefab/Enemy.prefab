@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4865722764133558178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.4442663, y: -0.300081, z: 12.78899}
+  m_LocalPosition: {x: 1.71, y: -0.300081, z: 12.78899}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865722764707001210}
@@ -203,7 +203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4865722764525636241}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.3557339, y: -0.300081, z: 12.78899}
+  m_LocalPosition: {x: 0.23, y: -0.300081, z: 12.78899}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4865722764707001210}
@@ -313,3 +313,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 4865722764707001209}
+  weakSound: {fileID: 8300000, guid: db581cadc17371c45b5d45292046cea3, type: 3}

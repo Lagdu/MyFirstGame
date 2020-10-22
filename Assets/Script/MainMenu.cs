@@ -11,9 +11,14 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(levelToLoad);
     }
 
-    public void SettingsButton()
+    public void OpenSettingsButton()
     {
         settingsMenu.SetActive(true);
+    }
+
+    public void CloseSettingsMenu()
+    {
+        settingsMenu.SetActive(false);
     }
 
     public void CloseSettingsButton()
@@ -25,4 +30,6 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+
 }

@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public SpriteRenderer graphics;
     public float invicibilityFlashDelay = 0.15f;
     public float invicibilityTimeAfterHit = 3f;
-
+    public AudioClip hitSound;
 
     public static PlayerHealth instance;
 
@@ -58,7 +58,8 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (!isInvicible) 
-        { 
+        {
+            AudioManager.instance.PlayClipAt(hitSound, transform.position);
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
 
@@ -79,7 +80,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
-        Debug.LogError("Die motha fuka");
+        Debug.LogWarning("Die motha fuka");
         PlayerMovement.instance.enabled = false;
         PlayerMovement.instance.animator.SetTrigger("Die");
         PlayerMovement.instance.rb.bodyType = RigidbodyType2D.Kinematic;

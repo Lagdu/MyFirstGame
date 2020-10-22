@@ -1290,6 +1290,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 7020e160740e2af4fb51024ed4016229, type: 2}
   resolutionDropdown: {fileID: 4864504211029031524}
+  musicSlider: {fileID: 4207112024316701479}
+  soundSlider: {fileID: 1099036978760879836}
 --- !u!1 &3306375691308264329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,7 +1493,7 @@ GameObject:
   - component: {fileID: 2824604984298086702}
   - component: {fileID: 2508396229363950173}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ButtonClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1598,7 +1600,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: CloseSettingsButton
+        m_MethodName: CloseSettingsMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

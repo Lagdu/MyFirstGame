@@ -105,7 +105,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -8901974960454430416, guid: 6e8fd41184012604e97186fc8a39ffa1,
     type: 3}
   m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
@@ -131,17 +131,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8406741657345191371}
-  moveSpeed: 700
+  animator: {fileID: 8406741657345191368}
+  spriteRenderer: {fileID: 8406741657345191374}
+  playerCollider: {fileID: 8406741657345191370}
+  moveSpeed: 250
+  climbSpeed: 100
   jumpForce: 300
-  isJumping: 0
-  isGrounded: 0
+  isClimbing: 0
   groundCheck: {fileID: 8406741656980400299}
   groundCheckRadius: 0.4
   collisionLayer:
     serializedVersion: 2
     m_Bits: 1
-  animator: {fileID: 8406741657345191368}
-  spriteRenderer: {fileID: 8406741657345191374}
 --- !u!50 &8406741657345191371
 Rigidbody2D:
   serializedVersion: 4
@@ -201,6 +202,7 @@ MonoBehaviour:
   graphics: {fileID: 8406741657345191374}
   invicibilityFlashDelay: 0.15
   invicibilityTimeAfterHit: 3
+  hitSound: {fileID: 8300000, guid: cfea439243554914a84b03bb5548bd30, type: 3}
 --- !u!70 &8406741657345191370
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
