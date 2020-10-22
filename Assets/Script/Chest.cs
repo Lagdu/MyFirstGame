@@ -48,6 +48,6 @@ public class Chest : MonoBehaviour
         Inventory.instance.AddCoin(coinsToAdd);
         AudioManager.instance.PlayClipAt(soundChest, transform.position);
         GetComponent<BoxCollider2D>().enabled = false;
-        interactUi.enabled = false;
+        interactUi.enabled = false;  
     }
 }
