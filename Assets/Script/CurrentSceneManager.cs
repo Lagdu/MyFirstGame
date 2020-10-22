@@ -2,10 +2,10 @@
 
 public class CurrentSceneManager : MonoBehaviour
 {
-    public bool isPlayerPresentByDefault = false;
     public int coinsPickedUpInThisSceneCount;
 
     public static CurrentSceneManager instance;
+    public Vector3 respawnPoint;
 
     private void Awake()
     {
@@ -16,8 +16,11 @@ public class CurrentSceneManager : MonoBehaviour
         }
 
         instance = this;
+
+        respawnPoint = GameObject.FindGameObjectWithTag("Player").transform.position;
     }
 
+    
 
 
 }

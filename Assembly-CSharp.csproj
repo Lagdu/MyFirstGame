@@ -70,7 +70,6 @@
     <Compile Include="Assets\Script\Credit.cs" />
     <Compile Include="Assets\Script\CurrentSceneManager.cs" />
     <Compile Include="Assets\Script\DeathZone.cs" />
-    <Compile Include="Assets\Script\DontDestroyOnLoadScene.cs" />
     <Compile Include="Assets\Script\EnemyPatrol.cs" />
     <Compile Include="Assets\Script\GameOverManager.cs" />
     <Compile Include="Assets\Script\HealPowerUp.cs" />
@@ -84,7 +83,6 @@
     <Compile Include="Assets\Script\Pickupobject.cs" />
     <Compile Include="Assets\Script\PlayerHealth.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
-    <Compile Include="Assets\Script\PlayerSpawn.cs" />
     <Compile Include="Assets\Script\SettingsMenu.cs" />
     <Compile Include="Assets\Script\WeakSpot.cs" />
     <Reference Include="UnityEngine">
