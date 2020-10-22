@@ -70,6 +70,9 @@
     <Compile Include="Assets\Script\Credit.cs" />
     <Compile Include="Assets\Script\CurrentSceneManager.cs" />
     <Compile Include="Assets\Script\DeathZone.cs" />
+    <Compile Include="Assets\Script\Dialogue.cs" />
+    <Compile Include="Assets\Script\DialogueManager.cs" />
+    <Compile Include="Assets\Script\DialogueTrigger.cs" />
     <Compile Include="Assets\Script\EnemyPatrol.cs" />
     <Compile Include="Assets\Script\GameOverManager.cs" />
     <Compile Include="Assets\Script\HealPowerUp.cs" />
