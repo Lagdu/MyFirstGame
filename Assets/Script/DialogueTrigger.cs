@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    public bool isInRange;
+    private bool isInRange;
+    private Text interactUi;
+
+    void Awake()
+    {
+        interactUi = GameObject.FindGameObjectWithTag("InteractText").GetComponent<Text>();
+
+    }
 
     void Update()
     {
         if (isInRange && Input.GetKeyDown(KeyCode.E))
         {
             TriggerDialogue();
-        }   
+        } 
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -18,6 +26,7 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRange = true;
+            interactUi.enabled = true;
         }   
     }
 
@@ -26,6 +35,8 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRange = false;
+            interactUi.enabled = false;
+            DialogueManager.instance.EndDialogue();
         }
     }
 
