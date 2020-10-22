@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage(120);
+            TakeDamage(60);
         }
     }
 

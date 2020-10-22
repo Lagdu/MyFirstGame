@@ -87,6 +87,7 @@
     <Compile Include="Assets\Script\Pickupobject.cs" />
     <Compile Include="Assets\Script\PlayerHealth.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
+    <Compile Include="Assets\Script\Scriptable\Item.cs" />
     <Compile Include="Assets\Script\SettingsMenu.cs" />
     <Compile Include="Assets\Script\WeakSpot.cs" />
     <Reference Include="UnityEngine">
