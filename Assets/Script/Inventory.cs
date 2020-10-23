@@ -6,8 +6,12 @@ public class Inventory : MonoBehaviour
 {
     public int coinsCount;
     public Text coinsCountText;
-    
-    public List<Item> content= new List<Item>();
+
+    public Image itemImageUi;
+    public Text itemNameUi;
+    public Sprite emptyItemImage;
+
+    public List<Item> content = new List<Item>();
     public int contentCurrentIndex = 0;
 
     public static Inventory instance;
@@ -23,23 +27,37 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        UpdateInventoryUi();
+    }
+
     public void  GetNextItem()
     {
+        if (content.Count == 0)
+        {
+            return;
+        }
         contentCurrentIndex++;
         if (contentCurrentIndex > content.Count - 1)
         {
             contentCurrentIndex=0;
         }
+        UpdateInventoryUi();
     }
 
     public void  GetPreviousItem()
     {
-
+        if (content.Count == 0)
+        {
+            return;
+        }
         contentCurrentIndex--;
         if (contentCurrentIndex < 0)
         {
             contentCurrentIndex = content.Count - 1;
         }
+        UpdateInventoryUi();
     }
 
     public void AddCoin(int count)
@@ -60,10 +78,30 @@ public class Inventory : MonoBehaviour
 
     public void ConsumeItem()
     {
+        if (content.Count == 0)
+        {
+            return;
+        }
         Item currentItem = content[contentCurrentIndex];
         PlayerHealth.instance.HealPlayer(currentItem.hpGiven);
         PlayerMovement.instance.moveSpeed = currentItem.speedGiven;
         content.Remove(currentItem);
         GetNextItem();
+        UpdateInventoryUi();
+    }
+
+    public void UpdateInventoryUi()
+    {
+        if (content.Count > 0) {
+            Debug.LogWarning(" PAS EMPTY : " + content.Count);
+            itemImageUi.sprite = content[contentCurrentIndex].image;
+            itemNameUi.text = content[contentCurrentIndex].name;
+        }
+        else
+        {
+            Debug.LogWarning("EMPTY : " + content.Count);
+            itemImageUi.sprite = emptyItemImage;
+            itemNameUi.text = "";
+        }
     }
 }
