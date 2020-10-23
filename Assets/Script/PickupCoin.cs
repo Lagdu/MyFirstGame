@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Pickupobject : MonoBehaviour
+public class PickupCoin : MonoBehaviour
 {
 
     public AudioClip sound;

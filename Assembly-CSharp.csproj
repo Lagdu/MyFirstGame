@@ -84,7 +84,9 @@
     <Compile Include="Assets\Script\LoadSpecificScene.cs" />
     <Compile Include="Assets\Script\MainMenu.cs" />
     <Compile Include="Assets\Script\PauseMenu.cs" />
-    <Compile Include="Assets\Script\Pickupobject.cs" />
+    <Compile Include="Assets\Script\PickupCoin.cs" />
+    <Compile Include="Assets\Script\PickupItem.cs" />
+    <Compile Include="Assets\Script\PlayerEffect.cs" />
     <Compile Include="Assets\Script\PlayerHealth.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
     <Compile Include="Assets\Script\Scriptable\Item.cs" />

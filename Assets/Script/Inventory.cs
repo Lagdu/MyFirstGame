@@ -12,7 +12,9 @@ public class Inventory : MonoBehaviour
     public Sprite emptyItemImage;
 
     public List<Item> content = new List<Item>();
-    public int contentCurrentIndex = 0;
+    private int contentCurrentIndex = 0;
+
+    public PlayerEffect playerEffect;
 
     public static Inventory instance;
 
@@ -84,7 +86,7 @@ public class Inventory : MonoBehaviour
         }
         Item currentItem = content[contentCurrentIndex];
         PlayerHealth.instance.HealPlayer(currentItem.hpGiven);
-        PlayerMovement.instance.moveSpeed = currentItem.speedGiven;
+        playerEffect.AddSpedd(currentItem.speedGiven, currentItem.speedDuration);
         content.Remove(currentItem);
         GetNextItem();
         UpdateInventoryUi();

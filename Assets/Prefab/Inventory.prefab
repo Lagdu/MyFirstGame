@@ -45,3 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsCount: 0
   coinsCountText: {fileID: 0}
+  itemImageUi: {fileID: 0}
+  itemNameUi: {fileID: 0}
+  emptyItemImage: {fileID: 21300000, guid: 300625d753051ad44a6ed7e8ae1851fb, type: 3}
+  content: []
+  playerEffect: {fileID: 0}
