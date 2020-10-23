@@ -23013,6 +23013,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 571641025, guid: 8de4b0b8997fa33409e5be004142233a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -334.34583
+      objectReference: {fileID: 0}
+    - target: {fileID: 571641025, guid: 8de4b0b8997fa33409e5be004142233a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -158.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1224044366, guid: 8de4b0b8997fa33409e5be004142233a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
